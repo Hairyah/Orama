@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fusible
   - Joueur
+  - ZoneEnnemi
   layers:
   - Default
   - TransparentFX

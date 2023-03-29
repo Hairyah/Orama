@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject grappedObject;
     bool isCarying = false;
+    bool isDetected = false;
+    float niveauAlerte;
 
 
     void Update()
@@ -32,7 +34,16 @@ public class PlayerMovement : MonoBehaviour
         } else if (isCarying && Input.GetKeyDown("e"))
         {
             DegrapInsert();
+        }
 
+        if (isDetected)
+        {
+            niveauAlerte += 0.1f;
+            Debug.Log(niveauAlerte);
+        }else if (!isDetected && niveauAlerte > 0)
+        {
+            niveauAlerte -= 0.05f;
+            Debug.Log(niveauAlerte);
         }
     }
 
@@ -51,6 +62,19 @@ public class PlayerMovement : MonoBehaviour
             other.transform.position += new Vector3(0,0.5f,0);
 
             interaction.enabled = false;
+        }
+
+        if (other.tag == "ZoneEnnemi")
+        {
+            isDetected = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "ZoneEnnemi")
+        {
+            isDetected = false;
         }
     }
 
