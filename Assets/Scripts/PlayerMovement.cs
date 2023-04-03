@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isDetected)
         {
-            niveauAlerte += 0.1f;
+            niveauAlerte += 0.25f;
             Debug.Log(niveauAlerte);
         }else if (!isDetected && niveauAlerte > 0)
         {

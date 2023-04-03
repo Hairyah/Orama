@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class BoitierScript : MonoBehaviour
 {
-    bool isActivate = false;
-
+    //bool isActivate = false;
     public GameObject porte;
 
     private void OnTriggerEnter(Collider other)
@@ -14,7 +13,7 @@ public class BoitierScript : MonoBehaviour
         if (other.tag == "Fusible")
         {
             Debug.Log("OUVERTURE PORTE");
-            isActivate = true;
+            //isActivate = true;
 
             Debug.Log(porte);
             porte.transform.position += new Vector3(0, 5f, 0);
@@ -26,7 +25,7 @@ public class BoitierScript : MonoBehaviour
         if (other.tag == "Fusible")
         {
             Debug.Log("FERMETURE PORTE");
-            isActivate = false;
+            //isActivate = false;
 
             porte.transform.position -= new Vector3(0, 5f, 0);
         }
