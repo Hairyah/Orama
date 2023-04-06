@@ -6103,6 +6103,7 @@ MonoBehaviour:
   player: {fileID: 0}
   grappedObject: {fileID: 0}
   grapPosition: {fileID: 1160776204}
+  buddyCam: {fileID: 1288884964}
 --- !u!54 &1953754901
 Rigidbody:
   m_ObjectHideFlags: 0

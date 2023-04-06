@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     PlayerControls input;
     float leftStickAxis;
     float rightStickAxis;
+    bool movementPressed;
+    bool rotationPressed;
     bool grapPressed;
     bool buddyCamPressed;
 
@@ -30,32 +32,50 @@ public class PlayerMovement : MonoBehaviour
     bool isDetected = false;
     float niveauAlerte;
 
+    [Header("Buddy Cam Parameters")]
+    public BuddyCam buddyCam;
+
     private void Awake()
     {
         input = new PlayerControls();
 
-        input.Gameplay.Move.performed += ctx => leftStickAxis = ctx.ReadValue<float>();
-        input.Gameplay.Rotate.performed += ctx => rightStickAxis = ctx.ReadValue<float>();
-        input.Gameplay.Grap.performed += ctx => grapPressed = ctx.ReadValueAsButton();
-        input.Gameplay.BuddyCam.performed += ctx => buddyCamPressed = ctx.ReadValueAsButton();
+        input.Gameplay.Move.performed += ctx =>
+        {
+            leftStickAxis = ctx.ReadValue<float>();
+            movementPressed = leftStickAxis != 0;
+        };
+        input.Gameplay.Rotate.performed += ctx =>
+        {
+            rightStickAxis = ctx.ReadValue<float>();
+            rotationPressed = rightStickAxis != 0;
+        };
+        //input.Gameplay.Grap.performed += ctx => grapPressed = ctx.ReadValueAsButton();
+        //input.Gameplay.BuddyCam.performed += ctx => buddyCamPressed = ctx.ReadValueAsButton();
     }
 
     void Update()
     {
+        Debug.Log(rotationPressed);
+
+
+        grapPressed = input.Gameplay.Grap.triggered;
+        buddyCamPressed = input.Gameplay.BuddyCam.triggered;
+
         // PARTIE MOUVEMENT
-        playerRigidbody.velocity += transform.forward * Input.GetAxisRaw("Vertical") * playerSpeed * Time.deltaTime;
-        newRotation += (Input.GetAxis("Horizontal") * playerRotation * Time.deltaTime);
+        playerRigidbody.velocity += transform.forward * leftStickAxis * playerSpeed * Time.deltaTime;
+        newRotation += (rightStickAxis * playerRotation * Time.deltaTime);
         transform.eulerAngles = new Vector3(0, newRotation, 0);
 
         // PARTIE INTERACTION
-        if (!isCarying && Input.GetKeyDown("e"))
+        if (!isCarying && grapPressed)
         {
             interaction.enabled = true;
-        } else if (isCarying && Input.GetKeyDown("e"))
+        } else if (isCarying && grapPressed)
         {
             DegrapInsert();
         }
 
+        // PARTIE DETECTION
         if (isDetected)
         {
             niveauAlerte += 0.5f;
@@ -64,6 +84,11 @@ public class PlayerMovement : MonoBehaviour
         {
             niveauAlerte -= 0.05f;
             Debug.Log(niveauAlerte);
+        }
+
+        if (buddyCamPressed)
+        {
+            buddyCam.buddyCamInteraction();
         }
     }
 

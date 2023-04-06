@@ -8,13 +8,13 @@ public class BuddyCam : MonoBehaviour
     bool isActivate = false;
     public CinemachineVirtualCamera buddyCamera;
 
-    void Update()
+    public void buddyCamInteraction()
     {
-        if (!isActivate && Input.GetButtonDown("BuddyCam"))
+        if (!isActivate)
         {
             isActivate = true;
             buddyCamera.Priority = 10;
-        } else if (isActivate && Input.GetButtonDown("BuddyCam"))
+        } else if (isActivate)
         {
             isActivate = false;
             buddyCamera.Priority = 0;
