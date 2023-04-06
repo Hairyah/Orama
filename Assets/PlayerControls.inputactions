@@ -1,0 +1,94 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "30a61210-0341-4383-b78a-331e01749d53",
+            "actions": [
+                {
+                    "name": "Grap",
+                    "type": "Button",
+                    "id": "45bdb4f3-c84e-4659-b9db-a7f6a7492ce2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BuddyCam",
+                    "type": "Button",
+                    "id": "45963e0c-b461-4434-a061-5a38bfc48a8d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "6818735f-3fb6-49f4-8e82-fbb7d26a5615",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Rotate",
+                    "type": "Value",
+                    "id": "fe5fcd3e-86fe-4cc6-8c3b-e1479840eba5",
+                    "expectedControlType": "Axis",
+                    "processors": "AxisDeadzone",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9fef5394-3a49-4a53-9b7d-4683d315a9b7",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5970d1ad-3d86-42bf-9aeb-f17afed868af",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BuddyCam",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e80eae20-31e2-4cec-8084-14746edc037d",
+                    "path": "<Gamepad>/leftStick/y",
+                    "interactions": "",
+                    "processors": "AxisDeadzone",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ad66c800-b177-4604-a0e6-6da3368d970e",
+                    "path": "<Gamepad>/rightStick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

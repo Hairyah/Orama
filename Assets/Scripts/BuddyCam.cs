@@ -10,11 +10,11 @@ public class BuddyCam : MonoBehaviour
 
     void Update()
     {
-        if (!isActivate && Input.GetKeyDown("space"))
+        if (!isActivate && Input.GetButtonDown("BuddyCam"))
         {
             isActivate = true;
             buddyCamera.Priority = 10;
-        } else if (isActivate && Input.GetKeyDown("space"))
+        } else if (isActivate && Input.GetButtonDown("BuddyCam"))
         {
             isActivate = false;
             buddyCamera.Priority = 0;

@@ -7,6 +7,7 @@ TagManager:
   - Fusible
   - Joueur
   - ZoneEnnemi
+  - Grappable
   layers:
   - Default
   - TransparentFX
