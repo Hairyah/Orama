@@ -44,20 +44,22 @@ public class PlayerMovement : MonoBehaviour
             leftStickAxis = ctx.ReadValue<float>();
             movementPressed = leftStickAxis != 0;
         };
+        
         input.Gameplay.Rotate.performed += ctx =>
         {
             rightStickAxis = ctx.ReadValue<float>();
             rotationPressed = rightStickAxis != 0;
         };
+
+        input.Gameplay.Move.canceled += ctx => leftStickAxis = 0;
+        input.Gameplay.Rotate.canceled += ctx => rightStickAxis = 0;
+
         //input.Gameplay.Grap.performed += ctx => grapPressed = ctx.ReadValueAsButton();
         //input.Gameplay.BuddyCam.performed += ctx => buddyCamPressed = ctx.ReadValueAsButton();
     }
 
     void Update()
     {
-        Debug.Log(rotationPressed);
-
-
         grapPressed = input.Gameplay.Grap.triggered;
         buddyCamPressed = input.Gameplay.BuddyCam.triggered;
 
