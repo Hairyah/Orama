@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonBody 1
+  m_Name: ToonBodyBoitier
   m_Shader: {fileID: 4800000, guid: b84d5a7992356da4cab3085cd2b76dc9, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -107,7 +107,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _Albedo: {r: 0.3758945, g: 0.6698113, b: 0.13585795, a: 1}
+    - _Albedo: {r: 0.5849056, g: 0.22013196, b: 0.21244211, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

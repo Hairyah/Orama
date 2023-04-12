@@ -8,6 +8,7 @@ TagManager:
   - Joueur
   - ZoneEnnemi
   - Grappable
+  - ZoneGlissante
   layers:
   - Default
   - TransparentFX
