@@ -64,15 +64,24 @@ public class PlayerMovement : MonoBehaviour
         buddyCamPressed = input.Gameplay.BuddyCam.triggered;
 
         // PARTIE MOUVEMENT
-        playerRigidbody.velocity += transform.forward * leftStickAxis * playerSpeed * Time.deltaTime;
-        newRotation += (rightStickAxis * playerRotation * Time.deltaTime);
-        transform.eulerAngles = new Vector3(0, newRotation, 0);
+        if (Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Horizontal") == 0)
+        {
+            playerRigidbody.velocity += transform.forward * leftStickAxis * playerSpeed * Time.deltaTime;
+            newRotation += (rightStickAxis * playerRotation * Time.deltaTime);
+            transform.eulerAngles = new Vector3(0, newRotation, 0);
+        }
+        else
+        {
+            playerRigidbody.velocity += transform.forward * Input.GetAxis("Vertical") * playerSpeed * Time.deltaTime;
+            newRotation += (Input.GetAxisRaw("Horizontal") * playerRotation * Time.deltaTime);
+            transform.eulerAngles = new Vector3(0, newRotation, 0);
+        }
 
         // PARTIE INTERACTION
-        if (!isCarying && grapPressed)
+        if (!isCarying && (grapPressed || Input.GetKeyDown(KeyCode.E)))
         {
             interaction.enabled = true;
-        } else if (isCarying && grapPressed)
+        } else if (isCarying && (grapPressed || Input.GetKeyDown(KeyCode.E)))
         {
             DegrapInsert();
         }
@@ -88,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log(niveauAlerte);
         }
 
-        if (buddyCamPressed)
+        if (buddyCamPressed || Input.GetKeyDown(KeyCode.Space))
         {
             buddyCam.buddyCamInteraction();
         }
