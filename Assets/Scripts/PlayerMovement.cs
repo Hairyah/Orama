@@ -107,16 +107,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.tag == "Fusible" || other.tag == "Grappable")
         {
-            grappedObject = other.gameObject;
-            //float dist = Vector3.Distance(transform.position, other.transform.position);
+            if (gameObject.GetComponent<FixedJoint>() == null)
+            {
+                var joint = gameObject.AddComponent<FixedJoint>();
+                joint.connectedBody = other.attachedRigidbody;
+
+                isCarying = true;
+            }
+
+            /*grappedObject = other.gameObject;
 
             other.GetComponent<Rigidbody>().isKinematic = true;
-            //other.GetComponent<BoxCollider>().enabled = false;
             other.transform.parent = transform;
 
             isCarying = true;
-            //other.transform.position += new Vector3(0,0.5f,0);
-            other.transform.position = grapPosition.transform.position;
+            other.transform.position = grapPosition.transform.position;*/
 
             interaction.enabled = false;
         }
@@ -138,9 +143,12 @@ public class PlayerMovement : MonoBehaviour
     public void DegrapInsert()
     {
         isCarying = false;
-        grappedObject.GetComponent<Rigidbody>().isKinematic = false;
+        Destroy(gameObject.GetComponent<FixedJoint>());
+        Debug.Log("Destroyed");
+
+        /*grappedObject.GetComponent<Rigidbody>().isKinematic = false;
         grappedObject.transform.parent = null;
-        grappedObject.GetComponent<BoxCollider>().enabled = true;
+        grappedObject.GetComponent<BoxCollider>().enabled = true;*/
     }
 
     private void OnEnable()
