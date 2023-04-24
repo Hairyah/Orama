@@ -11,17 +11,23 @@ public class ZoneGlissante : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //rb.Add(other.gameObject.GetComponent<Rigidbody>());
-        rb = other.gameObject.GetComponent<Rigidbody>();
+        if(other.tag != "magnet")
+        {
+            //rb.Add(other.gameObject.GetComponent<Rigidbody>());
+            rb = other.gameObject.GetComponent<Rigidbody>();
 
-        rb.drag = glissementGlissante;
+            rb.drag = glissementGlissante;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        //rb.Remove(other.gameObject.GetComponent<Rigidbody>());
-        rb = other.gameObject.GetComponent<Rigidbody>();
+        if (other.tag != "magnet")
+        {
+            //rb.Remove(other.gameObject.GetComponent<Rigidbody>());
+            rb = other.gameObject.GetComponent<Rigidbody>();
 
-        rb.drag = glissementBase;
+            rb.drag = glissementBase;
+        }  
     }
 }
