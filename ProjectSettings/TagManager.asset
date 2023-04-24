@@ -9,6 +9,7 @@ TagManager:
   - ZoneEnnemi
   - Grappable
   - ZoneGlissante
+  - magnet
   layers:
   - Default
   - TransparentFX
