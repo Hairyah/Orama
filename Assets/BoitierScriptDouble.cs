@@ -2,22 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class BoitierScript : MonoBehaviour
+public class BoitierScriptDouble : MonoBehaviour
 {
     //bool isActivate = false;
-    public GameObject porte;
     public GameObject spotFusible;
+    public bool hasPower = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Fusible")
         {
-            Debug.Log("OUVERTURE PORTE");
-            //isActivate = true;
-
-            Debug.Log(porte);
-            porte.transform.position += new Vector3(0, 5f, 0);
+            hasPower = true;
 
             other.transform.position = spotFusible.transform.position;
         }
@@ -27,10 +22,7 @@ public class BoitierScript : MonoBehaviour
     {
         if (other.tag == "Fusible")
         {
-            Debug.Log("FERMETURE PORTE");
-            //isActivate = false;
-
-            porte.transform.position -= new Vector3(0, 5f, 0);
+            hasPower = false ;
         }
     }
 }
