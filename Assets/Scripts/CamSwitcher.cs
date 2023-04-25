@@ -9,7 +9,7 @@ public class CamSwitcher : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Joueur"))
+        if (other.gameObject.name == "Joueur")
         {
             activeCam.Priority = 1;
         }
@@ -17,7 +17,7 @@ public class CamSwitcher : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Joueur"))
+        if (other.gameObject.name == "Joueur")
         {
             activeCam.Priority = 0;
         }
