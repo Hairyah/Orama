@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Buddy Cam Parameters")]
     public BuddyCam buddyCam;
 
+    AudioSource audioSource;
+
     private void Awake()
     {
         input = new PlayerControls();
@@ -58,6 +61,11 @@ public class PlayerMovement : MonoBehaviour
 
         //input.Gameplay.Grap.performed += ctx => grapPressed = ctx.ReadValueAsButton();
         //input.Gameplay.BuddyCam.performed += ctx => buddyCamPressed = ctx.ReadValueAsButton();
+    }
+
+    private void Start()
+    {
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -85,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
             interaction.enabled = true;
             _magnetScript.isActived = true;
             _magnetScript2.isActived = true;
+            audioSource.PlayOneShot(audioSource.clip, 0.65f);
         } else if (_magnetScript.isActived && (grapPressed || Input.GetKeyDown(KeyCode.E)))
         {
             DegrapInsert();
@@ -100,9 +109,11 @@ public class PlayerMovement : MonoBehaviour
         if (isDetected)
         {
             niveauAlerte += 0.5f;
-            if (niveauAlerte > 100)
+            if (niveauAlerte > 30)
             {
                 Debug.Log("PERDU !");
+                Scene scene = SceneManager.GetActiveScene(); 
+                SceneManager.LoadScene(scene.name);
             }
             Debug.Log(niveauAlerte);
         } else if (!isDetected && niveauAlerte > 0)
@@ -129,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
 
                 isCarying = true;
             }*/
+            FindObjectOfType<AudioManager>().Play("Grap");
 
             grappedObject = other.gameObject;
 
@@ -160,6 +172,8 @@ public class PlayerMovement : MonoBehaviour
         _magnetScript.isActived = false;
         _magnetScript2.isActived = false;
         interaction.enabled = false;
+
+        audioSource.Stop();
 
         isCarying = false;
         /*Destroy(gameObject.GetComponent<FixedJoint>());

@@ -8,14 +8,21 @@ public class BoitierScript : MonoBehaviour
     //bool isActivate = false;
     public GameObject porte;
     public GameObject spotFusible;
-
+    public GameObject particle;
     public PlayerMovement player;
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = gameObject.GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Fusible")
         {
-            Debug.Log("OUVERTURE PORTE");
-            //isActivate = true;
+            Instantiate(particle, transform.position, Quaternion.identity);
+            audioSource.PlayOneShot(audioSource.clip, 0.4f);
 
             Debug.Log(porte);
             porte.transform.position += new Vector3(0, 5f, 0);
@@ -30,9 +37,6 @@ public class BoitierScript : MonoBehaviour
     {
         if (other.tag == "Fusible")
         {
-            Debug.Log("FERMETURE PORTE");
-            //isActivate = false;
-
             porte.transform.position -= new Vector3(0, 5f, 0);
         }
     }
