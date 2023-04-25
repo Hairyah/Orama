@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     bool isCarying = false;
     public GameObject grapPosition;
     public MagnetScript _magnetScript;
+    public MagnetScript _magnetScript2;
 
     [Header("Danger")]
     bool isDetected = false;
@@ -81,28 +82,32 @@ public class PlayerMovement : MonoBehaviour
         // PARTIE INTERACTION
         if (!_magnetScript.isActived && (grapPressed || Input.GetKeyDown(KeyCode.E)))
         {
-            //interaction.enabled = true;
+            interaction.enabled = true;
             _magnetScript.isActived = true;
+            _magnetScript2.isActived = true;
         } else if (_magnetScript.isActived && (grapPressed || Input.GetKeyDown(KeyCode.E)))
         {
-            _magnetScript.isActived = false;
             DegrapInsert();
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
             _magnetScript.isShockWave = !_magnetScript.isShockWave;
+            _magnetScript2.isShockWave = !_magnetScript2.isShockWave;
         }
 
         // PARTIE DETECTION
         if (isDetected)
         {
             niveauAlerte += 0.5f;
-            //Debug.Log(niveauAlerte);
+            if (niveauAlerte > 100)
+            {
+                Debug.Log("PERDU !");
+            }
+            Debug.Log(niveauAlerte);
         } else if (!isDetected && niveauAlerte > 0)
         {
             niveauAlerte -= 0.05f;
-            //Debug.Log(niveauAlerte);
         }
 
         if (buddyCamPressed || Input.GetKeyDown(KeyCode.Space))
@@ -113,9 +118,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        /*if (other.tag == "Fusible" || other.tag == "Grappable")
+        if (other.tag == "Fusible")
         {
-            if (gameObject.GetComponent<FixedJoint>() == null)
+            /*if (gameObject.GetComponent<FixedJoint>() == null)
             {
                 other.transform.position = grapPosition.transform.position;
 
@@ -123,18 +128,18 @@ public class PlayerMovement : MonoBehaviour
                 joint.connectedBody = other.attachedRigidbody;
 
                 isCarying = true;
-            }
+            }*/
 
-            //grappedObject = other.gameObject;
+            grappedObject = other.gameObject;
 
-            //other.GetComponent<Rigidbody>().isKinematic = true;
-            //other.transform.parent = transform;
+            other.GetComponent<Rigidbody>().isKinematic = true;
+            other.transform.parent = transform;
 
-            //isCarying = true;
-            //other.transform.position = grapPosition.transform.position;
+            isCarying = true;
+            other.transform.position = grapPosition.transform.position;
 
             interaction.enabled = false;
-        }*/
+        }
     
         if (other.tag == "ZoneEnnemi")
         {
@@ -152,13 +157,19 @@ public class PlayerMovement : MonoBehaviour
 
     public void DegrapInsert()
     {
-        isCarying = false;
-        Destroy(gameObject.GetComponent<FixedJoint>());
-        Debug.Log("Destroyed");
+        _magnetScript.isActived = false;
+        _magnetScript2.isActived = false;
+        interaction.enabled = false;
 
-        /*grappedObject.GetComponent<Rigidbody>().isKinematic = false;
-        grappedObject.transform.parent = null;
-        grappedObject.GetComponent<BoxCollider>().enabled = true;*/
+        isCarying = false;
+        /*Destroy(gameObject.GetComponent<FixedJoint>());
+        Debug.Log("Destroyed");*/
+        if(grappedObject != null)
+        {
+            grappedObject.GetComponent<Rigidbody>().isKinematic = false;
+            grappedObject.transform.parent = null;
+            grappedObject.GetComponent<BoxCollider>().enabled = true;
+        }
     }
 
     private void OnEnable()

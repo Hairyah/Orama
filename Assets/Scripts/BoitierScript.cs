@@ -9,6 +9,7 @@ public class BoitierScript : MonoBehaviour
     public GameObject porte;
     public GameObject spotFusible;
 
+    public PlayerMovement player;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Fusible")
@@ -18,6 +19,8 @@ public class BoitierScript : MonoBehaviour
 
             Debug.Log(porte);
             porte.transform.position += new Vector3(0, 5f, 0);
+
+            player.DegrapInsert();
 
             other.transform.position = spotFusible.transform.position;
         }

@@ -8,6 +8,8 @@ public class MagnetScript : MonoBehaviour
     public float ejectFactor = 200f;
     public bool isActived = false;
     public bool isShockWave = false;
+    public GameObject player;
+    public bool isPrincipal;
 
     List<Rigidbody> rgBalls = new List<Rigidbody>();
 
@@ -17,6 +19,14 @@ public class MagnetScript : MonoBehaviour
     {
         magnetP = GetComponent<Transform>();
         isShockWave = false;
+    }
+
+    private void Update()
+    {
+        if (isPrincipal)
+        {
+            transform.position = player.transform.position;
+        }
     }
 
     private void FixedUpdate()
