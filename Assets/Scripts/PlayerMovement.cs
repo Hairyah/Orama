@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Collider interaction;
     [SerializeField] GameObject player;
     [SerializeField] GameObject grappedObject;
-    bool isCarying = false;
     public GameObject grapPosition;
     public MagnetScript _magnetScript;
     public MagnetScript _magnetScript2;
@@ -147,7 +146,6 @@ public class PlayerMovement : MonoBehaviour
             other.GetComponent<Rigidbody>().isKinematic = true;
             other.transform.parent = transform;
 
-            isCarying = true;
             other.transform.position = grapPosition.transform.position;
 
             interaction.enabled = false;
@@ -175,7 +173,6 @@ public class PlayerMovement : MonoBehaviour
 
         audioSource.Stop();
 
-        isCarying = false;
         /*Destroy(gameObject.GetComponent<FixedJoint>());
         Debug.Log("Destroyed");*/
         if(grappedObject != null)
