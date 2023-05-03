@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject grapPosition;
     public MagnetScript _magnetScript;
     public MagnetScript _magnetScript2;
+    [SerializeField] GameObject indicateurAimant;
 
     [Header("Danger")]
     bool isDetected = false;
@@ -93,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
             _magnetScript.isActived = true;
             _magnetScript2.isActived = true;
             audioSource.PlayOneShot(audioSource.clip, 0.65f);
+            indicateurAimant.SetActive(true);
         } else if (_magnetScript.isActived && (grapPressed || Input.GetKeyDown(KeyCode.E)))
         {
             DegrapInsert();
@@ -128,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Fusible")
+        if (other.tag == "Fusible" || other.tag == "PotHuile" || other.tag == "BuddyCam")
         {
             /*if (gameObject.GetComponent<FixedJoint>() == null)
             {
@@ -171,6 +173,8 @@ public class PlayerMovement : MonoBehaviour
         _magnetScript2.isActived = false;
         interaction.enabled = false;
 
+        indicateurAimant.SetActive(false);
+
         audioSource.Stop();
 
         /*Destroy(gameObject.GetComponent<FixedJoint>());
@@ -179,7 +183,7 @@ public class PlayerMovement : MonoBehaviour
         {
             grappedObject.GetComponent<Rigidbody>().isKinematic = false;
             grappedObject.transform.parent = null;
-            grappedObject.GetComponent<BoxCollider>().enabled = true;
+            //grappedObject.GetComponent<BoxCollider>().enabled = true;
         }
     }
 

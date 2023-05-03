@@ -10,6 +10,8 @@ TagManager:
   - Grappable
   - ZoneGlissante
   - magnet
+  - PotHuile
+  - BuddyCam
   layers:
   - Default
   - TransparentFX

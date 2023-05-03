@@ -49,7 +49,7 @@ public class MagnetScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Fusible" || other.tag == "Grappable")
+        if (other.tag == "Fusible" || other.tag == "PotHuile" || other.tag == "BuddyCam" || other.tag == "Grappable")
         {
             rgBalls.Add(other.GetComponent<Rigidbody>());
         }
@@ -57,7 +57,7 @@ public class MagnetScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Fusible" || other.tag == "Grappable")
+        if (other.tag == "Fusible" || other.tag == "PotHuile" || other.tag == "BuddyCam" || other.tag == "Grappable")
         {
             rgBalls.Remove(other.GetComponent<Rigidbody>());
         }
