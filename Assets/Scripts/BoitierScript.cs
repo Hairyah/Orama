@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class BoitierScript : MonoBehaviour
 {
-    //bool isActivate = false;
-    public GameObject porte;
+    [Header("Fusible et Joueur")]
     public GameObject spotFusible;
     public GameObject particle;
     public PlayerMovement player;
     AudioSource audioSource;
+
+    [Header("Porte et animation")]
+    public Animator porteAnimator;
+    public MeshRenderer ecran;
+    public Material rougeFerme;
+    public Material vertOuvert;
 
     private void Start()
     {
@@ -24,8 +29,9 @@ public class BoitierScript : MonoBehaviour
             Instantiate(particle, transform.position, Quaternion.identity);
             audioSource.PlayOneShot(audioSource.clip, 0.4f);
 
-            Debug.Log(porte);
-            porte.transform.position += new Vector3(0, 5f, 0);
+            //porte.transform.position += new Vector3(0, 5f, 0);
+            porteAnimator.SetBool("IsClose", false);
+            ecran.material = vertOuvert;
 
             player.DegrapInsert();
 
@@ -37,7 +43,9 @@ public class BoitierScript : MonoBehaviour
     {
         if (other.tag == "Fusible")
         {
-            porte.transform.position -= new Vector3(0, 5f, 0);
+            //porte.transform.position -= new Vector3(0, 5f, 0);
+            porteAnimator.SetBool("IsClose", true);
+            ecran.material = rougeFerme;
         }
     }
 }

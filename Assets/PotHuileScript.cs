@@ -19,7 +19,7 @@ public class PotHuileScript : MonoBehaviour
         {
             anciennePos = transform.position;
 
-            Instantiate(zoneHuile, new Vector3(transform.position.x, 0, transform.position.z),Quaternion.identity);
+            Instantiate(zoneHuile, new Vector3(transform.position.x, -0.07f, transform.position.z),Quaternion.identity);
         }
     }
 }
