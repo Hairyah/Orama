@@ -10,6 +10,7 @@ public class BoitierScript : MonoBehaviour
     public GameObject particle;
     public PlayerMovement player;
     AudioSource audioSource;
+    public GameObject fusible;
 
     [Header("Porte et animation")]
     public Animator porteAnimator;

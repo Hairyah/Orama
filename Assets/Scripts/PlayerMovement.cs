@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
             niveauAlerte -= 0.05f;
         }
 
-        if (buddyCamPressed || Input.GetKeyDown(KeyCode.Space) && hasEnterBuddyCam)
+        if ((buddyCamPressed || Input.GetKeyDown(KeyCode.Space)) && hasEnterBuddyCam)
         {
             buddyCam.buddyCamInteraction();
         }
@@ -166,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
             isDetected = true;
         }
 
-        if (other.tag == "Zone7")
+        if (other.tag == "TriggerZone7")
         {
             hasEnterBuddyCam = true;
         }
