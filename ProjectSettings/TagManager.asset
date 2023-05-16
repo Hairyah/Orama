@@ -12,6 +12,8 @@ TagManager:
   - magnet
   - PotHuile
   - BuddyCam
+  - BoitierFusible
+  - Zone7
   layers:
   - Default
   - TransparentFX

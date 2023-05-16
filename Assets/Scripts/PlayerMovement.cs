@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     bool rotationPressed;
     bool grapPressed;
     bool buddyCamPressed;
+    public bool murStartBroken;
 
     [Header ("Base Stat Player")]
     [SerializeField] Rigidbody playerRigidbody;
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Buddy Cam Parameters")]
     public BuddyCam buddyCam;
+    public bool hasEnterBuddyCam;
 
     AudioSource audioSource;
 
@@ -77,13 +79,19 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Horizontal") == 0)
         {
             playerRigidbody.velocity += transform.forward * leftStickAxis * playerSpeed * Time.deltaTime;
-            newRotation += (rightStickAxis * playerRotation * Time.deltaTime);
+            if (murStartBroken)
+            {
+                newRotation += (rightStickAxis * playerRotation * Time.deltaTime);
+            }
             transform.eulerAngles = new Vector3(0, newRotation, 0);
         }
         else
         {
             playerRigidbody.velocity += transform.forward * Input.GetAxis("Vertical") * playerSpeed * Time.deltaTime;
-            newRotation += (Input.GetAxisRaw("Horizontal") * playerRotation * Time.deltaTime);
+            if (murStartBroken)
+            {
+                newRotation += (Input.GetAxisRaw("Horizontal") * playerRotation * Time.deltaTime);
+            }
             transform.eulerAngles = new Vector3(0, newRotation, 0);
         }
 
@@ -122,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
             niveauAlerte -= 0.05f;
         }
 
-        if (buddyCamPressed || Input.GetKeyDown(KeyCode.Space))
+        if (buddyCamPressed || Input.GetKeyDown(KeyCode.Space) && hasEnterBuddyCam)
         {
             buddyCam.buddyCamInteraction();
         }
@@ -156,6 +164,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag == "ZoneEnnemi")
         {
             isDetected = true;
+        }
+
+        if (other.tag == "Zone7")
+        {
+            hasEnterBuddyCam = true;
         }
     }
 

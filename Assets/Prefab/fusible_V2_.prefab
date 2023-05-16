@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2932525306962261839}
   - component: {fileID: 4572272491063316141}
   - component: {fileID: 4572272491063316140}
+  - component: {fileID: 6951374431333855328}
   m_Layer: 0
   m_Name: fusible_V2_
   m_TagString: Fusible
@@ -114,3 +115,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.019999998, y: 0.019999996, z: 0.053330008}
   m_Center: {x: 0, y: 0, z: 0.0035653862}
+--- !u!114 &6951374431333855328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3725198493434484378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c88dc9bdc0b9b448ef8446b95cf6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

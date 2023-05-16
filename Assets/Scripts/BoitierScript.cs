@@ -16,6 +16,7 @@ public class BoitierScript : MonoBehaviour
     public MeshRenderer ecran;
     public Material rougeFerme;
     public Material vertOuvert;
+    public AudioSource porteAudioSource;
 
     private void Start()
     {
@@ -36,6 +37,8 @@ public class BoitierScript : MonoBehaviour
             player.DegrapInsert();
 
             other.transform.position = spotFusible.transform.position;
+
+            porteAudioSource.PlayOneShot(porteAudioSource.clip, 0.6f);
         }
     }
 
