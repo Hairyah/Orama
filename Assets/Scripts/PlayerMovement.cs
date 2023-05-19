@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Danger")]
     bool isDetected = false;
     float niveauAlerte;
+    public Animator rondNoirRespawn;
+    bool respawnAnimationStarted;
 
     [Header("Buddy Cam Parameters")]
     public BuddyCam buddyCam;
@@ -118,11 +120,9 @@ public class PlayerMovement : MonoBehaviour
         if (isDetected)
         {
             niveauAlerte += 0.5f;
-            if (niveauAlerte > 30)
+            if (niveauAlerte > 20)
             {
-                Debug.Log("PERDU !");
-                Scene scene = SceneManager.GetActiveScene(); 
-                SceneManager.LoadScene(scene.name);
+                StartCoroutine(AnimationChoper());
             }
             Debug.Log(niveauAlerte);
         } else if (!isDetected && niveauAlerte > 0)
@@ -208,5 +208,26 @@ public class PlayerMovement : MonoBehaviour
     private void OnDisable()
     {
         input.Gameplay.Disable();
+    }
+
+    IEnumerator AnimationChoper()
+    {
+        if (!respawnAnimationStarted)
+        {
+            rondNoirRespawn.SetTrigger("Respawn");
+            respawnAnimationStarted = true;
+            StartCoroutine(resetAnimationChoper());
+        }
+
+        yield return new WaitForSeconds(1.1f);
+
+        transform.position = new Vector3(-65, 1, -44);
+    }
+
+    IEnumerator resetAnimationChoper()
+    {
+        yield return new WaitForSeconds(3f);
+
+        respawnAnimationStarted = false;
     }
 }

@@ -20,6 +20,7 @@ public class HautParleurScript : MonoBehaviour
         {
             audioSource.Stop();
             hasAlreadyPlayed = true;
+            Destroy(GetComponent<Animator>());
             FindObjectOfType<AudioManager>().Play("BreakAudio");
         }
     }

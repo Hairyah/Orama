@@ -12,6 +12,7 @@ public class CamSwitcher : MonoBehaviour
         if (other.gameObject.name == "Joueur")
         {
             activeCam.Priority = 1;
+            FindObjectOfType<AudioManager>().Play("BeepStart");
         }
     }
 

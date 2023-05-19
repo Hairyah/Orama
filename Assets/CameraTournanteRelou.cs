@@ -6,9 +6,13 @@ public class CameraTournanteRelou : MonoBehaviour
 {
     public float valeurRotation;
     public Vector3 rotationDirection = new Vector3();
+    public bool playerHasEnter;
 
     void Update()
     {
-        transform.Rotate(valeurRotation * rotationDirection * Time.deltaTime);
+        if (playerHasEnter)
+        {
+            transform.Rotate(valeurRotation * rotationDirection * Time.deltaTime);
+        }
     }
 }
