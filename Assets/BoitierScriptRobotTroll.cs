@@ -28,7 +28,10 @@ public class BoitierScriptRobotTroll : MonoBehaviour
             Instantiate(particle, transform.position, Quaternion.identity);
             audioSource.PlayOneShot(audioSource.clip, 0.4f);
 
-            robotShowWay.SetBool("isActivate", true);
+            if (robotShowWay != null)
+            {
+                robotShowWay.SetBool("isActivate", true);
+            }
 
             player.DegrapInsert();
 
@@ -40,7 +43,9 @@ public class BoitierScriptRobotTroll : MonoBehaviour
     {
         if (other.tag == "Fusible")
         {
-            robotShowWay.SetBool("isActivate", false);
+            if (robotShowWay!=null){
+                robotShowWay.SetBool("isActivate", false);
+            }
         }
     }
 }
