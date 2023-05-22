@@ -34,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Danger")]
     bool isDetected = false;
-    float niveauAlerte;
     public Animator rondNoirRespawn;
     bool respawnAnimationStarted;
 
@@ -119,15 +118,7 @@ public class PlayerMovement : MonoBehaviour
         // PARTIE DETECTION
         if (isDetected)
         {
-            niveauAlerte += 0.5f;
-            if (niveauAlerte > 20)
-            {
-                StartCoroutine(AnimationChoper());
-            }
-            Debug.Log(niveauAlerte);
-        } else if (!isDetected && niveauAlerte > 0)
-        {
-            niveauAlerte -= 0.05f;
+            StartCoroutine(AnimationChoper());
         }
 
         if ((buddyCamPressed || Input.GetKeyDown(KeyCode.Space)) && hasEnterBuddyCam)

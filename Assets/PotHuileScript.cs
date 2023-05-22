@@ -7,6 +7,7 @@ public class PotHuileScript : MonoBehaviour
 
     public GameObject zoneHuile;
     public Vector3 anciennePos;
+    public Color paintColor;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class PotHuileScript : MonoBehaviour
         {
             anciennePos = transform.position;
 
-            Instantiate(zoneHuile, new Vector3(transform.position.x, -0.07f, transform.position.z),Quaternion.identity);
+            Instantiate(zoneHuile, new Vector3(transform.position.x, -0.062f, transform.position.z),Quaternion.identity);
         }
     }
 }
