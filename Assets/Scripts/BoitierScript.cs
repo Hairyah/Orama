@@ -11,6 +11,7 @@ public class BoitierScript : MonoBehaviour
     public PlayerMovement player;
     AudioSource audioSource;
     public GameObject fusible;
+    public string fusibleName;
 
     [Header("Porte et animation")]
     public Animator porteAnimator;
@@ -26,7 +27,7 @@ public class BoitierScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Fusible")
+        if (other.tag == "Fusible" && other.name.Contains(fusibleName))
         {
             Instantiate(particle, transform.position, Quaternion.identity);
             audioSource.PlayOneShot(audioSource.clip, 0.4f);
@@ -45,7 +46,7 @@ public class BoitierScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Fusible")
+        if (other.tag == "Fusible" && other.name.Contains(fusibleName))
         {
             //porte.transform.position -= new Vector3(0, 5f, 0);
             porteAnimator.SetBool("IsClose", true);

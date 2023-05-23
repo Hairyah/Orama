@@ -128,6 +128,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212a034da854466439e40bc50ae4ca4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClipsTest:
+  - {fileID: 8300000, guid: 6c64e519352cba3458b2a36dfda445ee, type: 3}
+  - {fileID: 8300000, guid: d5b98701f93305643b7b4ecff737e4e6, type: 3}
+  - {fileID: 8300000, guid: 316fe1b1a76508d4bbd52ade0d6a7190, type: 3}
+  - {fileID: 8300000, guid: f4c6bccca46e46447b07c3378e32d806, type: 3}
+  - {fileID: 8300000, guid: a9dd4e633e90c2c4c8a28fd254f309f1, type: 3}
+  - {fileID: 8300000, guid: cdec41470f4963b429fccd4fe4b17af0, type: 3}
 --- !u!82 &3779719338849581517
 AudioSource:
   m_ObjectHideFlags: 0

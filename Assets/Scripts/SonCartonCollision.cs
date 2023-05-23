@@ -7,6 +7,8 @@ public class SonCartonCollision : MonoBehaviour
     AudioClip audioClip;
     AudioSource audioSource;
 
+    public AudioClip[] audioClipsTest;
+
     void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
@@ -22,6 +24,8 @@ public class SonCartonCollision : MonoBehaviour
             audioLevel = 0.8f;
         }
 
-        audioSource.PlayOneShot(audioClip, audioLevel);
+        var nbAudio = Random.Range(0, audioClipsTest.Length-1);
+
+        audioSource.PlayOneShot(audioClipsTest[nbAudio], audioLevel);
     }
 }
