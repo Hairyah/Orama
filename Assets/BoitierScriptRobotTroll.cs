@@ -14,6 +14,7 @@ public class BoitierScriptRobotTroll : MonoBehaviour
 
     [Header("Porte et animation")]
     public Animator robotShowWay;
+    public Animator faussePorte;
     public AudioSource porteAudioSource;
 
     private void Start()
@@ -32,6 +33,8 @@ public class BoitierScriptRobotTroll : MonoBehaviour
             {
                 robotShowWay.SetBool("isActivate", true);
             }
+
+            faussePorte.SetTrigger("FausseOuverture");
 
             player.DegrapInsert();
 

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3731389214370735436}
   - component: {fileID: 2596636455228623642}
   - component: {fileID: 2596636455228623643}
-  - component: {fileID: 1814870973314420786}
   - component: {fileID: 57981750521898828}
+  - component: {fileID: 2398247613182350360}
   m_Layer: 0
   m_Name: CartonOuvert
   m_TagString: Untagged
@@ -116,18 +116,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.041662324, y: 0.06568182, z: 0.038841903}
   m_Center: {x: -0.0001974048, y: 0.0036995907, z: 0.008987457}
---- !u!114 &1814870973314420786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2938724963263513753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 212a034da854466439e40bc50ae4ca4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &57981750521898828
 AudioSource:
   m_ObjectHideFlags: 0
@@ -224,3 +212,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2398247613182350360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2938724963263513753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212a034da854466439e40bc50ae4ca4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipsTest:
+  - {fileID: 8300000, guid: 6c64e519352cba3458b2a36dfda445ee, type: 3}
+  - {fileID: 8300000, guid: d5b98701f93305643b7b4ecff737e4e6, type: 3}
+  - {fileID: 8300000, guid: 316fe1b1a76508d4bbd52ade0d6a7190, type: 3}
+  - {fileID: 8300000, guid: f4c6bccca46e46447b07c3378e32d806, type: 3}
+  - {fileID: 8300000, guid: a9dd4e633e90c2c4c8a28fd254f309f1, type: 3}
+  - {fileID: 8300000, guid: cdec41470f4963b429fccd4fe4b17af0, type: 3}

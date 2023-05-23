@@ -34,6 +34,7 @@ public class BoitierScript : MonoBehaviour
 
             //porte.transform.position += new Vector3(0, 5f, 0);
             porteAnimator.SetBool("IsClose", false);
+            StartCoroutine(DingOuverture());
             ecran.material = vertOuvert;
 
             player.DegrapInsert();
@@ -52,5 +53,12 @@ public class BoitierScript : MonoBehaviour
             porteAnimator.SetBool("IsClose", true);
             ecran.material = rougeFerme;
         }
+    }
+
+    IEnumerator DingOuverture()
+    {
+        yield return new WaitForSeconds(3.5f);
+
+        FindObjectOfType<AudioManager>().Play("DingDoor");
     }
 }
