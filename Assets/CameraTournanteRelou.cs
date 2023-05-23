@@ -7,6 +7,7 @@ public class CameraTournanteRelou : MonoBehaviour
     public float valeurRotation;
     public Vector3 rotationDirection = new Vector3();
     public bool playerHasEnter;
+    public GameObject ATH;
 
     public Animator RobotDancer;
     public Animator RobotWall;
@@ -21,6 +22,7 @@ public class CameraTournanteRelou : MonoBehaviour
     {
         if (playerHasEnter)
         {
+            ATH.gameObject.SetActive(true);
             transform.Rotate(valeurRotation * rotationDirection * Time.deltaTime);
         }
     }
