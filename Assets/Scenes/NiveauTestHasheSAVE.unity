@@ -7858,7 +7858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &331642445
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26457,7 +26457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1211935111
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39004,7 +39004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db403694fe5977a42aaa3ddd8fcaae12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ATH: {fileID: 351343586}
+  ATH: {fileID: 331642444}
   playerMov: {fileID: 8861878933604121216}
 --- !u!1 &1781714985
 GameObject:
@@ -46854,7 +46854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fceb8bc5ca648624db6c155d542a3b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeCam: {fileID: 781585059}
+  activeCam: {fileID: 0}
 --- !u!65 &2132910455
 BoxCollider:
   m_ObjectHideFlags: 0
