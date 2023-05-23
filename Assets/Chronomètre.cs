@@ -12,20 +12,6 @@ public class Chronomètre : MonoBehaviour
     public bool timerIsRunning = false;
     public Text timeText;
 
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(instance);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-    }
-
     private void Start()
     {
         // Starts the timer automatically
