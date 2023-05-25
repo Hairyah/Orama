@@ -12384,6 +12384,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Grappable
       objectReference: {fileID: 0}
+    - target: {fileID: 3112265752249455715, guid: 3045134af28119444a289b00a7b7c91a,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3222963574004625983, guid: 3045134af28119444a289b00a7b7c91a,
         type: 3}
       propertyPath: m_RootOrder
@@ -26362,7 +26367,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178535179}
-  m_LocalRotation: {x: -0.018569436, y: 0.89696586, z: -0.037847545, w: -0.44008532}
+  m_LocalRotation: {x: -0.018569436, y: 0.89696586, z: -0.037847556, w: -0.44008526}
   m_LocalPosition: {x: 2.044, y: 1.15, z: -27.88}
   m_LocalScale: {x: 0.09783965, y: 0.99694467, z: 0.78362066}
   m_ConstrainProportionsScale: 0
@@ -38169,7 +38174,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -47460,7 +47465,7 @@ PrefabInstance:
     - target: {fileID: 9117227065600956766, guid: e760d233b6d258f4e8b9cb764d269751,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9117227065600956766, guid: e760d233b6d258f4e8b9cb764d269751,
         type: 3}
