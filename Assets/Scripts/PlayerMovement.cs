@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     public MagnetScript _magnetScript;
     public MagnetScript _magnetScript2;
     [SerializeField] GameObject indicateurAimant;
+    public Animator playerAnimator;
+    public AudioSource bonkSound;
 
     [Header("Danger")]
     bool isDetected = false;
@@ -40,8 +42,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Buddy Cam Parameters")]
     public BuddyCam buddyCam;
     public bool hasEnterBuddyCam;
-
     AudioSource audioSource;
+
+    [Header("Son Robots Aléatoire")]
+    public AudioClip[] ArrayBipBoupAleatoire;
+    public AudioSource bipBoupAudioSource;
 
     private void Awake()
     {
@@ -69,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
+        StartCoroutine(RandomSoundRobots());
     }
 
     void Update()
@@ -171,6 +177,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            playerAnimator.SetTrigger("AnimationCognerMur");
+            bonkSound.PlayOneShot(bonkSound.clip);
+        }
+    }
+
     public void DegrapInsert()
     {
         _magnetScript.isActived = false;
@@ -220,5 +235,17 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         respawnAnimationStarted = false;
+    }
+
+    IEnumerator RandomSoundRobots()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(5, 12));
+
+            var nbAudio = UnityEngine.Random.Range(0, ArrayBipBoupAleatoire.Length - 1);
+
+            bipBoupAudioSource.PlayOneShot(ArrayBipBoupAleatoire[nbAudio]);
+        }
     }
 }

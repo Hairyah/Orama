@@ -14,7 +14,7 @@ public class CameraTournanteRelou : MonoBehaviour
     private void Awake()
     {
         RobotDancer.SetTrigger("RobotDancer");
-        RobotWall.SetTrigger("RobotWall");
+        RobotWall.SetTrigger("RobotDancer");
     }
 
     void Update()
