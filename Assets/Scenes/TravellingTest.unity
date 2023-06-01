@@ -21991,6 +21991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camTournante: {fileID: 463296967}
   discoMusic: {fileID: 1596230759}
+  ATH1: {fileID: 331642444}
+  ATHDisco: {fileID: 1211935110}
 --- !u!1001 &790977325
 PrefabInstance:
   m_ObjectHideFlags: 0
