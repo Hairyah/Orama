@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: aead841e2d4e0644499c260c119a67a7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Queensha
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9d6da8105f5b5f4419544cd48d5bfbd0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
