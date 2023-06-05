@@ -39,7 +39,7 @@ public class BoitierScriptRobotTroll : MonoBehaviour
 
             faussePorte.SetTrigger("FausseOuverture");
             particleFumee.SetActive(true);
-
+            porteAudioSource.Play();
             player.DegrapInsert();
 
             other.transform.position = spotFusible.transform.position;
